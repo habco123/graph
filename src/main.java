@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class main {
 
     public static void main(String[] args) {
@@ -24,6 +21,9 @@ public class main {
         Cesta c = new Cesta(g);
         c.pridajVrchol("1");
         c.pridajVrchol("6");
+        c.pridajVrchol("5");
+        c.pridajVrchol("4");
+        c.pridajVrchol("3");
         System.out.println(c.getCena());
 
     }
