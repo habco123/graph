@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.logging.Handler;
 
 public class Uzel {
     private HashMap<Uzel, Integer> hehe = new HashMap<>();
