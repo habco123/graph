@@ -1,1 +1,1 @@
-cviko6 pre TIN
+kruskal pre TIN 
