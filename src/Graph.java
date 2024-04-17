@@ -1,27 +1,33 @@
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Graph {
-    private HashMap<String, Uzel> vrcholy = new HashMap<>();
+    private HashMap<Integer, Uzel> uzly = new HashMap<>();
+    private HashSet<Hrana> hrany = new HashSet<Hrana>();
 
-    public void pridej(String nazev1, String nazev2, int i) {
+    public void pridej(int nazev1, int nazev2, int cena) {
         Uzel u1 = vezmiExistujiciNeboVytvor(nazev1);
         Uzel u2 = vezmiExistujiciNeboVytvor(nazev2);
 
-        u1.pridejSouseda(u2, i);
-        u2.pridejSouseda(u1, i);
+        Hrana h1 = new Hrana(u1, u2, cena);
+        hrany.add(h1);
     }
-    private Uzel vezmiExistujiciNeboVytvor(String nazev) {
-        Uzel u = vrcholy.get(nazev);
-        if(u == null) {
-            Uzel novy = new Uzel();
-            vrcholy.put(nazev, novy);
-            u = novy;
+
+    private Uzel vezmiExistujiciNeboVytvor(int nazev1) {
+        Uzel novy = uzly.get(nazev1);
+        if(novy == null){
+            novy = new Uzel(nazev1);
+            uzly.put(nazev1, novy);
         }
-        return u;
+        return novy;
     }
-    public int getCenaMeziUzly(String s1, String s2){
-        Uzel u1 = vrcholy.get(s1);
-        Uzel u2 = vrcholy.get(s2);
-        return u1.getPrimaCena(u2);
+
+    public Collection<Uzel> getVrcholy(){
+        return uzly.values();
+    }
+
+    public HashSet<Hrana> getHrany(){
+        return hrany;
     }
 }

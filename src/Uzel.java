@@ -1,12 +1,16 @@
 import java.util.HashMap;
 
 public class Uzel {
-    private HashMap<Uzel, Integer> hehe = new HashMap<>();
+    private int nazev;
 
-    public void pridejSouseda(Uzel sused, int vaha) {
-        hehe.put(sused, vaha);
+    public Uzel(int nazev) {
+        this.nazev = nazev;
     }
-    public int getPrimaCena(Uzel u) {
-        return hehe.get(u);
+    public int getNazev(){
+        return nazev;
+    }
+    @Override
+    public String toString(){
+        return "Uzel name: " + nazev;
     }
 }
